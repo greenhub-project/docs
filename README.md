@@ -1,0 +1,2 @@
+# docs
+GreenHub platform documentation
