@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Docs for the GreenHub project",
   "scripts": {
-    "dev": "gitbook serve"
+    "dev": "gitbook serve",
     "deploy": "bash deploy.sh"
   },
   "repository": {
