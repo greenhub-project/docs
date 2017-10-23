@@ -1,6 +1,6 @@
 # GreenHub docs
 
-Documentation of the GreenHub project . Live at [docs.greenhubproject.org](http://docs.greenhubproject).
+Documentation of the GreenHub project . Live at [docs.greenhubproject.org](https://docs.greenhubproject).
 
 ## Development
 
