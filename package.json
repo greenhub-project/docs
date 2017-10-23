@@ -19,5 +19,6 @@
   "bugs": {
     "url": "https://github.com/greenhub-project/docs/issues"
   },
-  "homepage": "https://github.com/greenhub-project/docs#readme"
+  "homepage": "https://github.com/greenhub-project/docs#readme",
+  "devDependencies": {}
 }

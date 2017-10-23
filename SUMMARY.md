@@ -1,4 +1,4 @@
 # Summary
 
-* [Introduction](README.md)
-
+- [Introduction](intro.md)
+- [API](api.md)

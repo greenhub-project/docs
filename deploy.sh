@@ -5,6 +5,7 @@ gitbook install
 gitbook build
 mkdir _book
 cp CNAME _book/CNAME
+cp favicon.ico _book/gitbook/images
 cd _book
 git init
 git add -A

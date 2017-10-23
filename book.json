@@ -1,3 +1,6 @@
 {
-  "title": "GreenHub"
+  "title": "GreenHub",
+  "structure": {
+    "readme": "intro.md"
+  }
 }
