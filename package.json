@@ -1,0 +1,23 @@
+{
+  "name": "greenhub-docs",
+  "version": "1.0.0",
+  "description": "Docs for the GreenHub project",
+  "scripts": {
+    "dev": "gitbook serve"
+    "deploy": "bash deploy.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greenhub-project/docs.git"
+  },
+  "keywords": [
+    "greenhub",
+    "docs"
+  ],
+  "author": "Hugo Matalonga",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/greenhub-project/docs/issues"
+  },
+  "homepage": "https://github.com/greenhub-project/docs#readme"
+}
