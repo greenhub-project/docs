@@ -1,6 +1,12 @@
 {
   "gitbook": ">3.0.0",
   "title": "GreenHub",
+  "plugins": ["ga"],
+  "pluginsConfig": {
+    "ga": {
+        "token": "UA-49971884-5"
+    }
+  },
   "styles": {
     "website": "styles/vue.css"
   }

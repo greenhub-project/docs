@@ -21,5 +21,7 @@
   },
   "homepage": "https://github.com/greenhub-project/docs#readme",
   "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "gitbook-plugin-ga": "^2.0.0"
+  }
 }

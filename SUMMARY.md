@@ -17,6 +17,8 @@
 - [Authentication](api/authentication.md)
 - [Rate Limiting](api/rate-limiting.md)
 - [Pagination](api/pagination.md)
+- [Sorting](api/sorting.md)
+- [Filtering](api/filtering.md)
 - [User](api/user.md)
 - [Devices](api/devices.md)
 - [Samples](api/samples.md)

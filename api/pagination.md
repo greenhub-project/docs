@@ -2,7 +2,6 @@
 
 All collection responses are paginated. Paginated responses can accept two additional parameters: `page` and `per_page`. The default value for `page` is 1 and default value for `per_page` is 10.
 
-> If not provided, then the value of `per_page` will be assumed as `10`.
 > Please note that maximum value of `per_page` can be is `100`.
 
 ## Paginated Response

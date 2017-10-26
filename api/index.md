@@ -19,7 +19,7 @@ That's it! It will only takes a couple of minutes to create an account.
 
 ## Obtaining the API Key
 
-> You must verify your account before having access to the API token!
+> You must verify your account before having access to the API key!
 
 Once logged-in, go to your Settings page (by clicking on the top right menu with your username). You will find a section called `API Credentials` as shown on the image below:
 
