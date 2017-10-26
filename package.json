@@ -20,5 +20,6 @@
     "url": "https://github.com/greenhub-project/docs/issues"
   },
   "homepage": "https://github.com/greenhub-project/docs#readme",
-  "devDependencies": {}
+  "devDependencies": {},
+  "dependencies": {}
 }

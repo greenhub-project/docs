@@ -1,6 +1,7 @@
 {
+  "gitbook": ">3.0.0",
   "title": "GreenHub",
-  "structure": {
-    "readme": "intro.md"
+  "styles": {
+    "website": "styles/vue.css"
   }
 }

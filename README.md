@@ -1,16 +1,20 @@
-# GreenHub docs
+# GreenHub Documentation
 
-Documentation of the GreenHub project . Live at [docs.greenhubproject.org](https://docs.greenhubproject).
+## What is GreenHub?
 
-## Development
+> GreenHub is a collaborative approach to power consumption analysis of Android devices.
 
-``` bash
-# install gitbook CLI
-npm install gitbook-cli -g
+It is a project developed in the context of **Green Computing** research field.
 
-# install local plugins
-npm install
+The goal of this initiave is to collect data about energy consumption from Android devices in order to have real-world data to conduct further research, while making it available to the whole community.
 
-# serve
-npm run dev
-```
+Our approach to gather data is based on the **crowsourcing** sourcing model.
+
+Within the project, there are different modules in development, all collectively designated by **GreenHub**.
+
+So far, the following modules are being developed:
+
+- [GreenHub BatteryHub](https://play.google.com/store/apps/details?id=com.hmatalonga.greenhub) - Android app
+- [GreenHub Farmer](https://greenhub.di.ubi.pt/) - Backend web app + REST API
+- [GreenHub Lumberjack](https://www.npmjs.com/package/greenhub-cli) - A command line app for interacting with the GreenHub REST API
+
