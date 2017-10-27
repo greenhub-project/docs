@@ -4,7 +4,7 @@
 
 All requests to the GreenHub API require authentication.
 
-Authentication to the API is performed via **HTTP Basic Auth**. This is achieved by sending a valid API token in the request header.
+Authentication to the API is performed via **HTTP Basic Auth**. This is achieved by sending a valid API key in the request header.
 
 To authenticate requests in this way, pass your API token via the HTTP Authorization header:
 

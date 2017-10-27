@@ -20,6 +20,8 @@
 - [Sorting](api/sorting.md)
 - [Filtering](api/filtering.md)
 - [User](api/user.md)
+  - [User Object](api/user.md#user-object)
+  - [Get The User’s Profile](api/user.md#get-the-users-profile)
 - [Devices](api/devices.md)
 - [Samples](api/samples.md)
 - [API Reference Index](api/reference.md)

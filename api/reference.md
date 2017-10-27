@@ -8,4 +8,4 @@ All endpoints that require authentication you need to provide an API token with 
 | ------ | -------- | -------- | ------- | ----- |
 | GET    | /v1/me   | Get User | User    | Yes   |
 
-*Request authentication
+**Request authentication*
