@@ -8,7 +8,7 @@ It is a project developed in the context of **Green Computing** research field.
 
 The goal of this initiave is to collect data about energy consumption from Android devices in order to have real-world data to conduct further research, while making it available to the whole community.
 
-Our approach to gather data is based on the **crowsourcing** sourcing model.
+Our approach to gather data is based on the **crowsourcing** model.
 
 Within the project, there are different modules in development, all collectively designated by **GreenHub**.
 
