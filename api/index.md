@@ -2,6 +2,10 @@
 
 > Before start using the GreenHub API, be sure to understand our privacy policy. You can read it [here](https://greenhubproject.org/privacy).
 
+The GreenHub API provides access to the project's data repository. The repository contains **real-world data** gathered from a diverse population of Android devices.
+
+Using the API you will be able to query all the data collected from the Android devices via our app **BatteryHub**.
+
 ## Create an account
 
 In order to start using the GreenHub API, first you will need to create an account in our **GreenHub Farmer** web app.
