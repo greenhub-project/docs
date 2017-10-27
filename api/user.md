@@ -1,8 +1,12 @@
 # User
 
-User object represents a person who has a valid **GreenHub Farmer** account.
+- [User Object](#user-object)
+- [Get The User’s Profile](#get-the-users-profile)
+- [Generate New API Key](#generate-new-api-key)
 
 ## User Object
+
+User object represents a person who has a valid **GreenHub Farmer** account.
 
 | Key        | Type      | Description                                |
 | ---------- | --------- | ------------------------------------------ |
@@ -17,7 +21,7 @@ User object represents a person who has a valid **GreenHub Farmer** account.
 
 ## Get The User’s Profile
 
-Get detailed profile information about the current user.
+Gets detailed profile information about the current user.
 
 ```
 GET /v1/me
@@ -45,12 +49,14 @@ X-Ratelimit-Remaining: 59
 
 ```javascript
 {
-  "id": 1,
-  "name": "John Doe",
-  "email": "johndoe@example.com",
-  "verified": 1,
-  "created_at": "2017-10-18 16:29:21",
-  "updated_at": "2017-10-18 16:32:15"
+  "data": {
+    "created_at": "2017-10-17 18:27:02", 
+    "email": "johndoe@example.com", 
+    "id": 1, 
+    "name": "John Doe", 
+    "updated_at": "2017-10-26 18:27:49", 
+    "verified": 1
+  }
 }
 ```
 
@@ -58,4 +64,46 @@ X-Ratelimit-Remaining: 59
 
 ```javascript
 curl -i -X GET "https://greenhub.di.ubi.pt/api/v1/me" -H "Authorization: Bearer {your api key}"
+```
+
+## Generate New API Key
+
+Generates a new API token key for the current user.
+
+```
+PUT /v1/me/token
+```
+
+### Request Parameters
+
+#### Header
+
+| Param         | Description                                                                |
+| ------------- | --------------------------------------------------------------------------------------- |
+| Authorization | A valid API token. See [Authentication](authentication.md) for more details. *Required* |
+
+#### Query
+
+None
+
+### Response
+
+```javascript
+200 OK
+X-Ratelimit-Limit: 60
+X-Ratelimit-Remaining: 59
+```
+
+```javascript
+{
+  "data": {
+    "api_token": "{new api token here}"
+  }
+}
+```
+
+### Example Request
+
+```javascript
+curl -i -X PUT "https://greenhub.di.ubi.pt/api/v1/me/token" -H "Authorization: Bearer {your api key}"
 ```

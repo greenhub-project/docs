@@ -22,6 +22,7 @@
 - [User](api/user.md)
   - [User Object](api/user.md#user-object)
   - [Get The User’s Profile](api/user.md#get-the-users-profile)
+  - [Generate New API Key](api/user.md#generate-new-api-key)
 - [Devices](api/devices.md)
 - [Samples](api/samples.md)
 - [API Reference Index](api/reference.md)
