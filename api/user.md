@@ -1,4 +1,4 @@
-# User
+# Current User
 
 - [User Object](#user-object)
 - [Get The User’s Profile](#get-the-users-profile)

@@ -17,17 +17,17 @@
 - [Authentication](api/authentication.md)
 - [Rate Limiting](api/rate-limiting.md)
 - [Pagination](api/pagination.md)
-- [Sorting](api/sorting.md)
-- [Filtering](api/filtering.md)
-- [User](api/user.md)
+<!-- - [Sorting](api/sorting.md) -->
+<!-- - [Filtering](api/filtering.md) -->
+- [Current User](api/user.md)
   - [User Object](api/user.md#user-object)
   - [Get The User’s Profile](api/user.md#get-the-users-profile)
   - [Generate New API Key](api/user.md#generate-new-api-key)
-- [Devices](api/devices.md)
-- [Samples](api/samples.md)
+<!-- - [Devices](api/devices.md) -->
+<!-- - [Samples](api/samples.md) -->
 - [API Reference Index](api/reference.md)
 
-### Dev Guide
+<!-- ### Dev Guide
 
 - [BatteryHub](dev/batteryhub.md)
 - [Farmer](dev/farmer.md)
@@ -35,4 +35,4 @@
 
 ### Meta
 
-- [FAQ](meta/faq.md)
+- [FAQ](meta/faq.md) -->
