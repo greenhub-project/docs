@@ -1,6 +1,6 @@
 # Rate Limiting
 
-Rate limiting of the API is primarily on a per-user basis — or more accurately described, per user access token. It allows **60 requests per minute per access token**. On each request, your current rate limit status is returned in the response headers:
+Rate limiting of the API is primarily on a per-user basis — or more accurately described, per user API token. It allows **60 requests per minute per API token**. On each request, your current rate limit status is returned in the response headers:
 
 ```
 X-RateLimit-Limit: 60

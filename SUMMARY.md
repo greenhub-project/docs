@@ -19,13 +19,21 @@
 - [Pagination](api/pagination.md)
 <!-- - [Sorting](api/sorting.md) -->
 <!-- - [Filtering](api/filtering.md) -->
-- [Current User](api/user.md)
-  - [User Object](api/user.md#user-object)
-  - [Get The User’s Profile](api/user.md#get-the-users-profile)
-  - [Generate New API Key](api/user.md#generate-new-api-key)
-<!-- - [Devices](api/devices.md) -->
-<!-- - [Samples](api/samples.md) -->
-- [API Reference Index](api/reference.md)
+
+### API Reference
+
+- [Current User](reference/current-user.md)
+  - [User Object](reference/current-user.md#user-object)
+  - [Get Current User’s Profile](reference/current-user.md#get-current-users-profile)
+  - [Generate New API Key](reference/current-user.md#generate-new-api-key)
+- [Devices](reference/devices.md)
+  - [Device Object](reference/devices.md#device-object)
+  - [List Devices](reference/devices.md#list-devices)
+  - [Get A Device](reference/devices.md#get-a-device)
+  - [Get A Device's Samples](reference/devices.md#get-a-devices-samples)
+<!-- - [Samples](reference/samples.md)
+  - [Sample Object](reference/samples.md#sample-object) -->
+- [API Reference Index](reference/endpoints.md)
 
 <!-- ### Dev Guide
 

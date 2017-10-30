@@ -1,7 +1,7 @@
 # Current User
 
 - [User Object](#user-object)
-- [Get The User’s Profile](#get-the-users-profile)
+- [Get Current User’s Profile](#get-current-users-profile)
 - [Generate New API Key](#generate-new-api-key)
 
 ## User Object
@@ -13,15 +13,13 @@ User object represents a person who has a valid **GreenHub Farmer** account.
 | id         | integer   | ID of the user.                            |
 | name       | string    | Name of user.                              |
 | email      | string    | Email address of user.                     |
-| verified   | boolean*  | Whether user account is verified.          |
+| verified   | boolean   | Whether user account is verified.          |
 | created_at | timestamp | Datetime when the record was created.      |
 | updated_at | timestamp | Datetime when the record was last updated. |
 
-**Boolean values are stored as TINYINT.*
+## Get Current User’s Profile
 
-## Get The User’s Profile
-
-Gets detailed profile information about the current user.
+Get detailed profile information about the current user.
 
 ```
 GET /v1/me
@@ -49,14 +47,14 @@ X-Ratelimit-Remaining: 59
 
 ```javascript
 {
-  "data": {
-    "created_at": "2017-10-17 18:27:02", 
-    "email": "johndoe@example.com", 
-    "id": 1, 
-    "name": "John Doe", 
-    "updated_at": "2017-10-26 18:27:49", 
-    "verified": 1
-  }
+    "data": {
+        "created_at": "2017-10-17 18:27:02", 
+        "email": "johndoe@example.com", 
+        "id": 1, 
+        "name": "John Doe", 
+        "updated_at": "2017-10-26 18:27:49", 
+        "verified": 1
+    }
 }
 ```
 
@@ -68,7 +66,7 @@ curl -i -X GET "https://greenhub.di.ubi.pt/api/v1/me" -H "Authorization: Bearer 
 
 ## Generate New API Key
 
-Generates a new API token key for the current user.
+Generate a new API token key for the current user.
 
 ```
 PUT /v1/me/token
@@ -96,9 +94,9 @@ X-Ratelimit-Remaining: 59
 
 ```javascript
 {
-  "data": {
-    "api_token": "{new api token here}"
-  }
+    "data": {
+        "api_token": "{new api token here}"
+    }
 }
 ```
 

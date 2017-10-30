@@ -1,5 +1,12 @@
 # Schema
 
+- [Location](#location)
+- [Version](#version)
+- [HTTP Verbs](#http-verbs)
+- [Response Codes](#response-codes)
+- [Error Messages](#error-messages)
+- [Data Wrapping](#data-wrapping)
+
 ## Location
 
 The base address of the API is https://greenhub.di.ubi.pt/api/. Responses are sent as JSON.
@@ -41,7 +48,7 @@ It attempts to return appropriate HTTP status codes for every request.
 
 ## Error Messages
 
-If an error occurs, whether on the server or client side, the error message(s) will be returned in an `message` string. For example:
+If an error occurs, whether on the server or client side, the error message will be returned in an `message` string. For example:
 
 ```javascript
 401 Unauthorized
@@ -57,36 +64,36 @@ Example error message:
 
 ## Data Wrapping
 
-By default, all request responses, return the query result(s) wrapped in a `data` key.
+By default, all request responses, return the query result(s) wrapped in a `data` key. Within it, all keys are sorted alphabetically.
 So, for example, a typical collection response looks like the following:
 
 ```javascript
 {
-  "data": [
-    {
-      "id": 1,
-      "model": "HTC One M9",
-      "manufacturer": "HTC",
-      "brand": "htc",
-      "product": "himauhl_orange_fr-b2b",
-      "os_version": "7.0",
-      "kernel_version": "3.10.84-perf-g32dec9b",
-      "is_root": 0,
-      "created_at": "2017-10-24 16:13:50",
-      "updated_at": "2017-10-24 16:13:50"
-    },
-    {
-      "id": 2,
-      "model": "SM-G930F",
-      "manufacturer": "samsung",
-      "brand": "samsung",
-      "product": "heroltexx",
-      "os_version": "7.0",
-      "kernel_version": "3.18.14-11104523",
-      "is_root": 0,
-      "created_at": "2017-10-24 17:51:34",
-      "updated_at": "2017-10-24 17:51:34"
-    }
-  ]
+    "data": [
+        {
+            "id": 1,
+            "model": "HTC One M9",
+            "manufacturer": "HTC",
+            "brand": "htc",
+            "product": "himauhl_orange_fr-b2b",
+            "os_version": "7.0",
+            "kernel_version": "3.10.84-perf-g32dec9b",
+            "is_root": false,
+            "created_at": "2017-10-24 16:13:50",
+            "updated_at": "2017-10-24 16:13:50"
+        },
+        {
+            "id": 2,
+            "model": "SM-G930F",
+            "manufacturer": "samsung",
+            "brand": "samsung",
+            "product": "heroltexx",
+            "os_version": "7.0",
+            "kernel_version": "3.18.14-11104523",
+            "is_root": false,
+            "created_at": "2017-10-24 17:51:34",
+            "updated_at": "2017-10-24 17:51:34"
+        }
+    ]
 }
 ```

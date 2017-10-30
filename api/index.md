@@ -6,7 +6,7 @@ The GreenHub API provides access to the project's data repository. The repositor
 
 Using the API you will be able to query all the data collected from the Android devices via our app **BatteryHub**.
 
-## Create an account
+## Create An Account
 
 In order to start using the GreenHub API, first you will need to create an account in our **GreenHub Farmer** web app.
 
@@ -21,7 +21,7 @@ You can now login with your credentials and use the web app at [https://greenhub
 That's it! It will only takes a couple of minutes to create an account.
 
 
-## Obtaining the API Key
+## Obtaining The API Key
 
 > You must verify your account before having access to the API key!
 

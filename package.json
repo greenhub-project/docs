@@ -20,8 +20,8 @@
     "url": "https://github.com/greenhub-project/docs/issues"
   },
   "homepage": "https://github.com/greenhub-project/docs#readme",
-  "devDependencies": {},
-  "dependencies": {
+  "devDependencies": {
+    "gitbook-plugin-collapsible-menu": "^1.0.3",
     "gitbook-plugin-ga": "^1.0.1"
   }
 }

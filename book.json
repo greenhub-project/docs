@@ -1,10 +1,13 @@
 {
   "gitbook": ">3.0.0",
-  "title": "GreenHub",
-  "plugins": ["ga"],
+  "title": "GreenHub Docs",
+  "plugins": ["ga", "collapsible-menu"],
   "pluginsConfig": {
     "ga": {
         "token": "UA-49971884-5"
+    },
+    "github": {
+      "url": "https://github.com/greenhub-project/docs"
     }
   },
   "styles": {
