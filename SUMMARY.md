@@ -31,8 +31,8 @@
   - [List Devices](reference/devices.md#list-devices)
   - [Get A Device](reference/devices.md#get-a-device)
   - [Get A Device's Samples](reference/devices.md#get-a-devices-samples)
-<!-- - [Samples](reference/samples.md)
-  - [Sample Object](reference/samples.md#sample-object) -->
+- [Samples](reference/samples.md)
+  - [Sample Object](reference/samples.md#sample-object)
 - [API Reference Index](reference/endpoints.md)
 
 <!-- ### Dev Guide
