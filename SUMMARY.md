@@ -35,12 +35,13 @@
   - [Sample Object](reference/samples.md#sample-object)
 - [API Reference Index](reference/endpoints.md)
 
-<!-- ### Dev Guide
+### Dev Guide
 
+- [Overview](dev/overview.md)
 - [BatteryHub](dev/batteryhub.md)
-- [Farmer](dev/farmer.md)
-- [Lumberjack](dev/lumberjack.md)
+<!-- - [Farmer](dev/farmer.md) -->
+<!-- - [Lumberjack](dev/lumberjack.md) -->
 
 ### Meta
 
-- [FAQ](meta/faq.md) -->
+- [FAQ](meta/faq.md)
