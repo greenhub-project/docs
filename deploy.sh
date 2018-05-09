@@ -1,13 +1,21 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
-rm -rf _book
-gitbook install
-gitbook build
-mkdir _book
-cp CNAME _book/CNAME
-cp favicon.ico _book/gitbook/images
-cd _book
+# abort on errors
+set -e
+
+# build
+yarn run docs:build
+
+# navigate into the build output directory
+cd docs/.vuepress/dist
+
+# if you are deploying to a custom domain
+echo 'docs.greenhubproject.org' > CNAME
+
 git init
 git add -A
-git commit -m 'update book'
+git commit -m "Deploy $(date -Iseconds)"
+
 git push -f git@github.com:greenhub-project/docs.git master:gh-pages
+
+cd -

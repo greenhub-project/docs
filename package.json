@@ -1,27 +1,13 @@
 {
   "name": "greenhub-docs",
-  "version": "1.0.0",
-  "description": "Docs for the GreenHub project",
+  "version": "0.1.0",
   "scripts": {
-    "dev": "gitbook serve",
-    "deploy": "bash deploy.sh"
+    "dev": "yarn run docs:dev",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/greenhub-project/docs.git"
-  },
-  "keywords": [
-    "greenhub",
-    "docs"
-  ],
-  "author": "Hugo Matalonga",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/greenhub-project/docs/issues"
-  },
-  "homepage": "https://github.com/greenhub-project/docs#readme",
   "devDependencies": {
-    "gitbook-plugin-collapsible-menu": "^1.0.3",
-    "gitbook-plugin-ga": "^1.0.1"
+    "vuepress": "^0.8.4"
   }
 }

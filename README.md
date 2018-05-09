@@ -1,20 +1,20 @@
 # GreenHub Documentation
 
-## What is GreenHub?
+This repository contains the source code for the GreenHub docs.
 
-> GreenHub is a collaborative approach to power consumption analysis of Android devices.
+It is built with [Vuepress](https://vuepress.vuejs.org/).
 
-It is a project developed in the context of **Green Computing** research field.
+## Build Setup
 
-The goal of this initiative is to collect data about energy consumption from Android devices in order to have real-world data to conduct further research, while making it available to the whole community.
+``` bash
+# install dependencies
+$ npm install # Or yarn install
 
-Our approach to gather data is based on the **crowsourcing** model.
+# serve with hot reload at localhost:8080
+$ npm run docs:dev
 
-Within the project, there are different modules in development, all collectively designated by **GreenHub**.
+# build for production
+$ npm run docs:build
+```
 
-So far, the following applications are being developed:
-
-- [GreenHub BatteryHub](https://play.google.com/store/apps/details?id=com.hmatalonga.greenhub) - Android app
-- [GreenHub Farmer](https://greenhub.di.ubi.pt/) - Backend web app + REST API
-- [GreenHub Lumberjack](https://www.npmjs.com/package/greenhub-cli) - A command line app for interacting with the GreenHub REST API
-
+For detailed explanation on how things work, checkout the [Vuepress docs](https://vuepress.vuejs.org/guide/).
