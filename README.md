@@ -4,7 +4,7 @@
 
 This repository contains the source code for the GreenHub docs.
 
-It is built with [Vuepress](https://vuepress.vuejs.org/).
+It is built with [VuePress](https://vuepress.vuejs.org/).
 
 ## Build Setup
 
@@ -19,4 +19,4 @@ $ npm run docs:dev
 $ npm run docs:build
 ```
 
-For detailed explanation on how things work, checkout the [Vuepress docs](https://vuepress.vuejs.org/guide/).
+For detailed explanation on how things work, checkout the [VuePress docs](https://vuepress.vuejs.org/guide/).
