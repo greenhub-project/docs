@@ -1,5 +1,7 @@
 # GreenHub Documentation
 
+[![Build Status](https://travis-ci.org/greenhub-project/docs.svg?branch=master)](https://travis-ci.org/greenhub-project/docs)
+
 This repository contains the source code for the GreenHub docs.
 
 It is built with [Vuepress](https://vuepress.vuejs.org/).
