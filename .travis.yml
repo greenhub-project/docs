@@ -4,4 +4,4 @@ node_js:
 
 cache: yarn
 
-script: sh -e deploy.sh
+script: ./deploy.sh
