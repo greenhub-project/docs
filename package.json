@@ -1,13 +1,12 @@
 {
-  "name": "greenhub-docs",
-  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "dev": "yarn run docs:dev",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
   "license": "MIT",
-  "devDependencies": {
-    "vuepress": "^0.8.4"
+  "dependencies": {
+    "vuepress": "^0.9.0"
   }
 }
