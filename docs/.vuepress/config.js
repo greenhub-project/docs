@@ -8,6 +8,7 @@ module.exports = {
   themeConfig: {
     repo: 'greenhub-project/docs',
     editLinks: true,
+    lastUpdated: true,
     docsDir: 'docs',
     nav: [
       { text: 'Guide', link: '/guide/' },
