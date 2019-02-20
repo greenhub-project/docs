@@ -4,14 +4,14 @@
 
 ## Location
 
-The base address of the API is `https://greenhub.di.ubi.pt/api/`. Responses are sent as JSON.
+The base address of the API is `https://farmer.greenhubproject.org/api/`. Responses are sent as JSON.
 
 ## Version
 
 The API current version is **v1**. You should indicate the version via the uri:
 
 ```
-https://greenhub.di.ubi.pt/api/v1/
+https://farmer.greenhubproject.org/api/v1/
 ```
 
 ## HTTP Verbs
@@ -54,7 +54,7 @@ Example error message:
 
 ```json
 {
-  "message": "Unauthenticated."
+	"message": "Unauthenticated."
 }
 ```
 
@@ -65,31 +65,31 @@ So, for example, a typical collection response looks like the following:
 
 ```json
 {
-  "data": [
-    {
-      "id": 1,
-      "model": "HTC One M9",
-      "manufacturer": "HTC",
-      "brand": "htc",
-      "product": "himauhl_orange_fr-b2b",
-      "os_version": "7.0",
-      "kernel_version": "3.10.84-perf-g32dec9b",
-      "is_root": false,
-      "created_at": "2017-10-24 16:13:50",
-      "updated_at": "2017-10-24 16:13:50"
-    },
-    {
-      "id": 2,
-      "model": "SM-G930F",
-      "manufacturer": "samsung",
-      "brand": "samsung",
-      "product": "heroltexx",
-      "os_version": "7.0",
-      "kernel_version": "3.18.14-11104523",
-      "is_root": false,
-      "created_at": "2017-10-24 17:51:34",
-      "updated_at": "2017-10-24 17:51:34"
-    }
-  ]
+	"data": [
+		{
+			"id": 1,
+			"model": "HTC One M9",
+			"manufacturer": "HTC",
+			"brand": "htc",
+			"product": "himauhl_orange_fr-b2b",
+			"os_version": "7.0",
+			"kernel_version": "3.10.84-perf-g32dec9b",
+			"is_root": false,
+			"created_at": "2017-10-24 16:13:50",
+			"updated_at": "2017-10-24 16:13:50"
+		},
+		{
+			"id": 2,
+			"model": "SM-G930F",
+			"manufacturer": "samsung",
+			"brand": "samsung",
+			"product": "heroltexx",
+			"os_version": "7.0",
+			"kernel_version": "3.18.14-11104523",
+			"is_root": false,
+			"created_at": "2017-10-24 17:51:34",
+			"updated_at": "2017-10-24 17:51:34"
+		}
+	]
 }
 ```

@@ -7,7 +7,7 @@
 It is an ecosystem of applications which have as common goal: Gather, query and visualize data about the energy consumption of _Android_ devices. So far a mobile app (_BatteryHub_), a web app (_Farmer_) and a CLI app (_Lumberjack_). Below you can find the links for each app:
 
 - [GreenHub BatteryHub](https://play.google.com/store/apps/details?id=com.hmatalonga.greenhub) - Android app
-- [GreenHub Farmer](https://greenhub.di.ubi.pt/) - Backend web app + REST API
+- [GreenHub Farmer](https://farmer.greenhubproject.org/) - Backend web app + REST API
 - [GreenHub Lumberjack](https://www.npmjs.com/package/greenhub-cli) - A command line app for interacting with the GreenHub REST API
 
 ### Why was the GreenHub project created?
