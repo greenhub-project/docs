@@ -2,9 +2,7 @@ language: node_js
 node_js:
   - 'lts/*'
 
-cache: yarn
-
-script: yarn run docs:build
+script: npm run docs:build
 
 deploy:
   provider: pages
