@@ -7,3 +7,6 @@ yarn-error.log
 
 # Vuepress build
 docs/.vuepress/dist
+
+test.sh
+response.json
