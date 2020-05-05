@@ -14,18 +14,26 @@ GreenHub API URL: `https://farmer.greenhubproject.org/api/` .
 
 All actions that require authentication you need to provide an API token with the request. See [Authentication](/api/authentication.html) for more details.
 
-| Method | Endpoint                | Usage                                                | Returns                          | Auth\* |
-|--------|-------------------------|------------------------------------------------------|----------------------------------|--------|
-| GET    | /v1/me                  | [Get The User’s Profile](#get-current-users-profile) | [User](#user-object)             | Yes    |
-| PUT    | /v1/me/token            | [Generate New API Key](#generate-new-api-key)        | string                           | Yes    |
-| GET    | /v1/devices             | [List Devices](#list-devices)                        | [Devices](#device-object)        | Yes    |
-| GET    | /v1/devices/:id         | [Get A Device](#get-a-device)                        | [Device](#device-object)         | Yes    |
-| GET    | /v1/devices/:id/samples | [Get A Device's Samples](#get-a-device-s-samples)    | [Samples](#sample-object)        | Yes    |
-| GET    | /v1/samples             | [List Samples](#list-samples)                        | [Samples](#sample-object)        | Yes    |
-| GET    | /v1/samples/:id         | [Get A Sample](#get-a-sample)                        | [Sample](#sample-object)         | Yes    |
-| GET    | /v1/samples/:id/device  | [Get A Sample's Device](#get-a-sample-s-device)      | [Device](#device-object)         | Yes    |
-| GET    | /v1/cpu-statuses        | [List CPU Statuses](#list-cpu-statuses)              | [CPU Status](#cpu-status-object) | Yes    |
-| GET    | /v1/cpu-statuses/:id    | [Get A CPU Status](#get-a-cpu-status)                | [CPU Status](#cpu-status-object) | Yes    |
+| Method | Endpoint                | Usage                                                | Returns                                    | Auth\* |
+|--------|-------------------------|------------------------------------------------------|--------------------------------------------|--------|
+| GET    | /v1/me                  | [Get The User’s Profile](#get-current-users-profile) | [User](#user-object)                       | Yes    |
+| PUT    | /v1/me/token            | [Generate New API Key](#generate-new-api-key)        | string                                     | Yes    |
+| GET    | /v1/devices             | [List Devices](#list-devices)                        | [Devices](#device-object)                  | Yes    |
+| GET    | /v1/devices/:id         | [Get A Device](#get-a-device)                        | [Device](#device-object)                   | Yes    |
+| GET    | /v1/devices/:id/samples | [Get A Device's Samples](#get-a-device-s-samples)    | [Samples](#sample-object)                  | Yes    |
+| GET    | /v1/samples             | [List Samples](#list-samples)                        | [Samples](#sample-object)                  | Yes    |
+| GET    | /v1/samples/:id         | [Get A Sample](#get-a-sample)                        | [Sample](#sample-object)                   | Yes    |
+| GET    | /v1/samples/:id/device  | [Get A Sample's Device](#get-a-sample-s-device)      | [Device](#device-object)                   | Yes    |
+| GET    | /v1/cpu-statuses        | [List CPU Statuses](#list-cpu-statuses)              | [CPU Status](#cpu-status-object)           | Yes    |
+| GET    | /v1/cpu-statuses/:id    | [Get A CPU Status](#get-a-cpu-status)                | [CPU Status](#cpu-status-object)           | Yes    |
+| GET    | /v1/battery-details     | [List Battery Details](#list-battery-details)        | [Battery Details](#battery-details-object) | Yes    |
+| GET    | /v1/battery-details/:id | [Get A Battery Details](#get-a-battery-details)      | [Battery Details](#battery-details-object) | Yes    |
+| GET    | /v1/network-details     | [List Network Details](#list-network-details)        | [Network Details](#network-details-object) | Yes    |
+| GET    | /v1/network-details/:id | [Get A Network Details](#get-a-network-details)      | [Network Details](#network-details-object) | Yes    |
+| GET    | /v1/storage-details     | [List Storage Details](#list-storage-details)        | [Storage Details](#storage-details-object) | Yes    |
+| GET    | /v1/storage-details/:id | [Get A Storage Details](#get-a-storage-details)      | [Storage Details](#storage-details-object) | Yes    |
+| GET    | /v1/settings            | [List Settings](#list-settings)                      | [Settings](#settings-object)               | Yes    |
+| GET    | /v1/settings/:id        | [Get A Settings](#get-a-settings)                    | [Settings](#settings-object)               | Yes    |
 
 \*_Request authentication_
 
@@ -693,6 +701,142 @@ Battery Details object represents a set of extra information regarding the devic
 | created_at  | datetime | Timestamp when the record was created.                                                                         |
 | updated_at  | datetime | Timestamp when the record was last updated.                                                                    |
 
+### List Battery Details
+
+Get a single page from the list of all battery details.
+
+``` http
+GET /v1/battery-details
+```
+
+#### Authentication
+
+Yes
+
+#### Parameters
+
+All parameters are optional.
+
+| Param    | Description                               |
+|----------|-------------------------------------------|
+| page     | Page number to retrieve. _(Default: 1)_   |
+| per_page | Number of items per page. _(Default: 10)_ |
+
+#### Response
+
+``` http
+200 OK
+X-Ratelimit-Limit: 60
+X-Ratelimit-Remaining: 59
+```
+
+``` json
+{
+  "data": [
+    {
+      "id": 1,
+      "sample_id": 1,
+      "charger": "unplugged",
+      "health": "Good",
+      "voltage": "4.05",
+      "temperature": "28.50",
+      "capacity": 0,
+      "charge_counter": 0,
+      "current_average": 0,
+      "current_now": -229,
+      "energy_counter": -1,
+      "created_at": "2017-10-09 03:48:00",
+      "updated_at": "2017-10-09 03:48:00"
+    },
+    {
+      "id": 2,
+      "sample_id": 2,
+      "charger": "unplugged",
+      "health": "Good",
+      "voltage": "4.05",
+      "temperature": "28.50",
+      "capacity": 0,
+      "charge_counter": 0,
+      "current_average": 0,
+      "current_now": -229,
+      "energy_counter": -1,
+      "created_at": "2017-10-09 03:51:23",
+      "updated_at": "2017-10-09 03:51:23"
+    }
+  ],
+  "links": {
+    "first": "https://farmer.greenhubproject.org/api/v1/battery-details?page=1",
+    "last": null,
+    "prev": null,
+    "next": "https://farmer.greenhubproject.org/api/v1/battery-details?page=2"
+  },
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "path": "https://farmer.greenhubproject.org/api/v1/battery-details",
+    "per_page": "2",
+    "to": 2
+  }
+}
+```
+
+#### Example Request
+
+``` shell
+$ curl -i -X GET "https://farmer.greenhubproject.org/api/v1/battery-details?per_page=2" -H "Authorization: Bearer {your api key}"
+```
+
+### Get A Battery Details
+
+Retrieve a single Battery details.
+
+``` http
+GET /v1/battery-details/:id
+```
+
+#### Authentication
+
+Yes
+
+#### Parameters
+
+| Param | Description                          |
+|-------|--------------------------------------|
+| id    | The battery details's ID. _Required_ |
+
+#### Response
+
+``` json
+200 OK
+X-Ratelimit-Limit: 60
+X-Ratelimit-Remaining: 59
+```
+
+``` json
+{
+  "data": {
+    "id": 2222,
+    "sample_id": 2222,
+    "charger": "usb",
+    "health": "Good",
+    "voltage": "4.08",
+    "temperature": "29.80",
+    "capacity": 0,
+    "charge_counter": 0,
+    "current_average": 0,
+    "current_now": 626,
+    "energy_counter": -1,
+    "created_at": "2017-10-09 15:22:16",
+    "updated_at": "2017-10-09 15:22:16"
+  }
+}
+```
+
+#### Example Request
+
+``` json
+$ curl -i -X GET "https://farmer.greenhubproject.org/api/v1/battery-details/2222" -H "Authorization: Bearer {your api key}"
+```
 
 ## Network Details
 
@@ -721,6 +865,156 @@ Network Details object represents a set of extra information regarding the devic
 | updated_at           | datetime | Timestamp when the record was last updated.                                                          |
 
 
+### List Network Details
+
+Get a single page from the list of all network details.
+
+``` http
+GET /v1/network-details
+```
+
+#### Authentication
+
+Yes
+
+#### Parameters
+
+All parameters are optional.
+
+| Param    | Description                               |
+|----------|-------------------------------------------|
+| page     | Page number to retrieve. _(Default: 1)_   |
+| per_page | Number of items per page. _(Default: 10)_ |
+
+#### Response
+
+``` http
+200 OK
+X-Ratelimit-Limit: 60
+X-Ratelimit-Remaining: 59
+```
+
+``` json
+{
+  "data": [
+    {
+      "id": 1,
+      "sample_id": 1,
+      "network_type": "WIFI",
+      "mobile_network_type": "lte",
+      "mobile_data_status": "disconnected",
+      "mobile_data_activity": "none",
+      "roaming_enabled": 0,
+      "wifi_status": "enabled",
+      "wifi_signal_strength": -56,
+      "wifi_link_speed": 72,
+      "wifi_ap_status": "disabled",
+      "network_operator": "Verizon",
+      "sim_operator": "unknown",
+      "mcc": "311",
+      "mnc": "480",
+      "created_at": "2017-10-09 03:48:00",
+      "updated_at": "2017-10-09 03:48:00"
+    },
+    {
+      "id": 2,
+      "sample_id": 2,
+      "network_type": "WIFI",
+      "mobile_network_type": "lte",
+      "mobile_data_status": "disconnected",
+      "mobile_data_activity": "none",
+      "roaming_enabled": 0,
+      "wifi_status": "enabled",
+      "wifi_signal_strength": -56,
+      "wifi_link_speed": 72,
+      "wifi_ap_status": "disabled",
+      "network_operator": "Verizon",
+      "sim_operator": "unknown",
+      "mcc": "311",
+      "mnc": "480",
+      "created_at": "2017-10-09 03:51:23",
+      "updated_at": "2017-10-09 03:51:23"
+    }
+  ],
+  "links": {
+    "first": "https://farmer.greenhubproject.org/api/v1/network-details?page=1",
+    "last": null,
+    "prev": null,
+    "next": "https://farmer.greenhubproject.org/api/v1/network-details?page=2"
+  },
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "path": "https://farmer.greenhubproject.org/api/v1/network-details",
+    "per_page": "2",
+    "to": 2
+  }
+}
+```
+
+#### Example Request
+
+``` shell
+$ curl -i -X GET "https://farmer.greenhubproject.org/api/v1/network-details?per_page=2" -H "Authorization: Bearer {your api key}"
+```
+
+### Get A Network Details
+
+Retrieve a single Network details.
+
+``` http
+GET /v1/network-details/:id
+```
+
+#### Authentication
+
+Yes
+
+#### Parameters
+
+| Param | Description                          |
+|-------|--------------------------------------|
+| id    | The network details's ID. _Required_ |
+
+#### Response
+
+``` json
+200 OK
+X-Ratelimit-Limit: 60
+X-Ratelimit-Remaining: 59
+```
+
+``` json
+{
+  "data": {
+    "id": 1234,
+    "sample_id": 1234,
+    "network_type": "unknown",
+    "mobile_network_type": "utms",
+    "mobile_data_status": "disconnected",
+    "mobile_data_activity": "none",
+    "roaming_enabled": 0,
+    "wifi_status": "enabled",
+    "wifi_signal_strength": -200,
+    "wifi_link_speed": -1,
+    "wifi_ap_status": "disabled",
+    "network_operator": "MEO",
+    "sim_operator": "MEO",
+    "mcc": "268",
+    "mnc": "06",
+    "created_at": "2017-10-09 14:13:56",
+    "updated_at": "2017-10-09 14:13:56"
+  }
+}
+```
+
+#### Example Request
+
+``` json
+$ curl -i -X GET "https://farmer.greenhubproject.org/api/v1/network-details/1234" -H "Authorization: Bearer {your api key}"
+```
+
+
 ## Storage Details
 
 ### Storage Details Object
@@ -741,6 +1035,79 @@ Storage Details object represents the device's storage usage information at the 
 | total_secondary | integer  | Secondary storage total space.              |
 | created_at      | datetime | Timestamp when the record was created.      |
 | updated_at      | datetime | Timestamp when the record was last updated. |
+
+### List Storage Details
+
+Get a single page from the list of all storage details.
+
+``` http
+GET /v1/storage-details
+```
+
+#### Authentication
+
+Yes
+
+#### Parameters
+
+All parameters are optional.
+
+| Param    | Description                               |
+|----------|-------------------------------------------|
+| page     | Page number to retrieve. _(Default: 1)_   |
+| per_page | Number of items per page. _(Default: 10)_ |
+
+#### Response
+
+``` http
+200 OK
+X-Ratelimit-Limit: 60
+X-Ratelimit-Remaining: 59
+```
+
+``` json
+```
+
+#### Example Request
+
+``` shell
+$ curl -i -X GET "https://farmer.greenhubproject.org/api/v1/storage-details?per_page=2" -H "Authorization: Bearer {your api key}"
+```
+
+### Get A Storage Details
+
+Retrieve a single Storage Details.
+
+``` http
+GET /v1/storage-details/:id
+```
+
+#### Authentication
+
+Yes
+
+#### Parameters
+
+| Param | Description                          |
+|-------|--------------------------------------|
+| id    | The storage details's ID. _Required_ |
+
+#### Response
+
+``` json
+200 OK
+X-Ratelimit-Limit: 60
+X-Ratelimit-Remaining: 59
+```
+
+``` json
+```
+
+#### Example Request
+
+``` json
+$ curl -i -X GET "https://farmer.greenhubproject.org/api/v1/storage-details/1234" -H "Authorization: Bearer {your api key}"
+```
 
 
 ## Settings
