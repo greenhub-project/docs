@@ -7,6 +7,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "vuepress": "^0.14.11"
+    "vuepress": "^1.4.1"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.4.1"
   }
 }

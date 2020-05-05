@@ -14,16 +14,18 @@ GreenHub API URL: `https://farmer.greenhubproject.org/api/` .
 
 All actions that require authentication you need to provide an API token with the request. See [Authentication](/api/authentication.html) for more details.
 
-| Method | Endpoint                    | Usage                                                | Returns                   | Auth\* |
-|--------|-----------------------------|------------------------------------------------------|---------------------------|--------|
-| GET    | /v1/devices                 | [List Devices](#list-devices)                        | [Devices](#device-object) | Yes    |
-| GET    | /v1/devices/:device         | [Get A Device](#get-a-device)                        | [Device](#device-object)  | Yes    |
-| GET    | /v1/devices/:device/samples | [Get A Device's Samples](#get-a-devices-samples)     | [Samples](#sample-object) | Yes    |
-| GET    | /v1/samples                 | [List Samples](#list-samples)                        | [Samples](#sample-object) | Yes    |
-| GET    | /v1/samples/:sample         | [Get A Sample](#get-a-sample)                        | [Sample](#sample-object)  | Yes    |
-| GET    | /v1/samples/:sample/device  | [Get A Sample's Device](#get-a-samples-device)       | [Device](#device-object)  | Yes    |
-| GET    | /v1/me                      | [Get The User’s Profile](#get-current-users-profile) | [User](#user-object)      | Yes    |
-| PUT    | /v1/me/token                | [Generate New API Key](#generate-new-api-key)        | string                    | Yes    |
+| Method | Endpoint                | Usage                                                | Returns                          | Auth\* |
+|--------|-------------------------|------------------------------------------------------|----------------------------------|--------|
+| GET    | /v1/me                  | [Get The User’s Profile](#get-current-users-profile) | [User](#user-object)             | Yes    |
+| PUT    | /v1/me/token            | [Generate New API Key](#generate-new-api-key)        | string                           | Yes    |
+| GET    | /v1/devices             | [List Devices](#list-devices)                        | [Devices](#device-object)        | Yes    |
+| GET    | /v1/devices/:id         | [Get A Device](#get-a-device)                        | [Device](#device-object)         | Yes    |
+| GET    | /v1/devices/:id/samples | [Get A Device's Samples](#get-a-device-s-samples)    | [Samples](#sample-object)        | Yes    |
+| GET    | /v1/samples             | [List Samples](#list-samples)                        | [Samples](#sample-object)        | Yes    |
+| GET    | /v1/samples/:id         | [Get A Sample](#get-a-sample)                        | [Sample](#sample-object)         | Yes    |
+| GET    | /v1/samples/:id/device  | [Get A Sample's Device](#get-a-sample-s-device)      | [Device](#device-object)         | Yes    |
+| GET    | /v1/cpu-statuses        | [List CPU Statuses](#list-cpu-statuses)              | [CPU Status](#cpu-status-object) | Yes    |
+| GET    | /v1/cpu-statuses/:id    | [Get A CPU Status](#get-a-cpu-status)                | [CPU Status](#cpu-status-object) | Yes    |
 
 \*_Request authentication_
 
@@ -158,10 +160,10 @@ Yes
 
 All parameters are optional.
 
-| Param    | Description                              |
-|----------|------------------------------------------|
-| page     | Page number to retrieve._(Default: 1)_   |
-| per_page | Number of items per page._(Default: 10)_ |
+| Param    | Description                               |
+|----------|-------------------------------------------|
+| page     | Page number to retrieve. _(Default: 1)_   |
+| per_page | Number of items per page. _(Default: 10)_ |
 
 #### Response
 
@@ -233,13 +235,11 @@ GET /v1/devices/:id
 
 Yes
 
-#### Request Parameters
+#### Parameters
 
-| Param    | Description                                       |
-|----------|---------------------------------------------------|
-| id       | The device's ID._Required_                        |
-| page     | Page number to retrieve._Optional (Default: 1)_   |
-| per_page | Number of items per page._Optional (Default: 10)_ |
+| Param | Description                 |
+|-------|-----------------------------|
+| id    | The device's ID. _Required_ |
 
 #### Response
 
@@ -286,13 +286,13 @@ GET /v1/devices/:id/samples
 
 Yes
 
-#### Request Parameters
+#### Parameters
 
-| Param    | Description                                       |
-|----------|---------------------------------------------------|
-| id       | The device's ID._Required_                        |
-| page     | Page number to retrieve._Optional (Default: 1)_   |
-| per_page | Number of items per page._Optional (Default: 10)_ |
+| Param    | Description                                        |
+|----------|----------------------------------------------------|
+| id       | The device's ID. _Required_                        |
+| page     | Page number to retrieve. _Optional (Default: 1)_   |
+| per_page | Number of items per page. _Optional (Default: 10)_ |
 
 #### Response
 
@@ -389,7 +389,7 @@ Sample object represents a snapshot of the Android device, it is a summary of it
 | screen_brightness | integer  | Screen brightness value between `0` and `255` , `-1` if set to automatic otherwise.          |
 | screen_on         | boolean  | Either if screen is on or off.                                                               |
 | timezone          | string   | Current timezone of the mobile device.                                                       |
-| country_code      | string   | Current network ISO country code.                                                            |
+| country_code      | string   | Current network ISOBattery Details country code.                                             |
 | created_at        | datetime | Timestamp when the record was created.                                                       |
 | updated_at        | datetime | Timestamp when the record was last updated.                                                  |
 
@@ -409,10 +409,10 @@ Yes
 
 All parameters are optional.
 
-| Param    | Description                              |
-|----------|------------------------------------------|
-| page     | Page number to retrieve._(Default: 1)_   |
-| per_page | Number of items per page._(Default: 10)_ |
+| Param    | Description                               |
+|----------|-------------------------------------------|
+| page     | Page number to retrieve. _(Default: 1)_   |
+| per_page | Number of items per page. _(Default: 10)_ |
 
 #### Response
 
@@ -497,11 +497,9 @@ Yes
 
 #### Parameters
 
-| Param    | Description                              |
-|----------|------------------------------------------|
-| id       | The sample's ID._Required_               |
-| page     | Page number to retrieve._(Default: 1)_   |
-| per_page | Number of items per page._(Default: 10)_ |
+| Param | Description                 |
+|-------|-----------------------------|
+| id    | The sample's ID. _Required_ |
 
 #### Response
 
@@ -539,6 +537,144 @@ X-Ratelimit-Remaining: 59
 $ curl -i -X GET "https://farmer.greenhubproject.org/api/v1/samples/1234" -H "Authorization: Bearer {your api key}"
 ```
 
+### Get A Sample's Device
+
+Retrieve a single sample's.
+
+``` http
+GET /v1/samples/:id/device
+```
+
+#### Authentication
+
+Yes
+
+#### Parameters
+
+| Param | Description                 |
+|-------|-----------------------------|
+| id    | The sample's ID. _Required_ |
+
+#### Response
+
+``` http
+200 OK
+X-Ratelimit-Limit: 60
+X-Ratelimit-Remaining: 59
+```
+
+```json
+{
+  "data": {
+    "id": 40,
+    "model": "SM-G920F",
+    "manufacturer": "samsung",
+    "brand": "samsung",
+    "product": "zerofltexx",
+    "os_version": "7.0",
+    "kernel_version": "3.10.61-10940776",
+    "is_root": false,
+    "created_at": "2017-10-09 10:27:44",
+    "updated_at": "2017-10-09 10:27:44"
+  }
+}
+```
+
+#### Example Request
+
+``` shell
+$ curl -i -X GET "https://farmer.greenhubproject.org/api/v1/samples/1000/device" -H "Authorization: Bearer {your api key}"
+```
+
+## CPU Statuses
+
+### CPU Status Object
+
+CPU Status object represents the state of the device's CPU at the time the associated sample is obtained. Contains information about its usage, up and sleep time.
+
+| Key        | Type     | Description                                 |
+|------------|----------|---------------------------------------------|
+| id         | integer  | ID of the CPU status.                       |
+| sample_id  | integer  | ID of the sample that it belongs to.        |
+| usage      | float    | Fraction of cpu being used.                 |
+| up_time    | integer  | Up time in seconds.                         |
+| sleep_time | integer  | Sleep time in seconds.                      |
+| created_at | datetime | Timestamp when the record was created.      |
+| updated_at | datetime | Timestamp when the record was last updated. |
+
+### List CPU Statuses
+
+Get a single page from the list of all cpu statuses.
+
+``` http
+GET /v1/cpu-statuses
+```
+
+#### Authentication
+
+Yes
+
+#### Parameters
+
+All parameters are optional.
+
+| Param    | Description                               |
+|----------|-------------------------------------------|
+| page     | Page number to retrieve. _(Default: 1)_   |
+| per_page | Number of items per page. _(Default: 10)_ |
+
+#### Response
+
+``` http
+200 OK
+X-Ratelimit-Limit: 60
+X-Ratelimit-Remaining: 59
+```
+
+``` json
+```
+
+#### Example Request
+
+``` shell
+$ curl -i -X GET "https://farmer.greenhubproject.org/api/v1/cpu-statuses?per_page=2" -H "Authorization: Bearer {your api key}"
+```
+
+
+### Get A CPU Status
+
+Retrieve a single CPU status.
+
+``` http
+GET /v1/cpu-statuses/:id
+```
+
+#### Authentication
+
+Yes
+
+#### Parameters
+
+| Param | Description                     |
+|-------|---------------------------------|
+| id    | The CPU status's ID. _Required_ |
+
+#### Response
+
+``` json
+200 OK
+X-Ratelimit-Limit: 60
+X-Ratelimit-Remaining: 59
+```
+
+``` json
+```
+
+#### Example Request
+
+``` json
+$ curl -i -X GET "https://farmer.greenhubproject.org/api/v1/cpu-statuses/1234" -H "Authorization: Bearer {your api key}"
+```
 
 ## Battery Details
 
@@ -546,9 +682,12 @@ $ curl -i -X GET "https://farmer.greenhubproject.org/api/v1/samples/1234" -H "Au
 
 Battery Details object represents a .
 
-| Key | Type    | Description                |
-|-----|---------|----------------------------|
-| id  | integer | ID of the battery details. |
+| Key        | Type     | Description                                 |
+|------------|----------|---------------------------------------------|
+| id         | integer  | ID of the battery details.                  |
+| created_at | datetime | Timestamp when the record was created.      |
+| updated_at | datetime | Timestamp when the record was last updated. |
+
 
 ## Network Details
 
@@ -556,7 +695,42 @@ Battery Details object represents a .
 
 Network Details object represents a .
 
+| Key        | Type     | Description                                 |
+|------------|----------|---------------------------------------------|
+| id         | integer  | ID of the network details.                  |
+| created_at | datetime | Timestamp when the record was created.      |
+| updated_at | datetime | Timestamp when the record was last updated. |
+
+
+## Storage Details
+
+### Storage Details Object
+
+Storage Details object represents a .
+
 | Key | Type    | Description                |
 |-----|---------|----------------------------|
-| id  | integer | ID of the network details. |
+| id  | integer | ID of the storage details. |
+
+
+## Settings
+
+### Settings Object
+
+Settings object represents a set of device's configuration at the time the associated sample is obtained. Contains information regarding which components are switch on or off.
+
+| Key                 | Type     | Description                                                                   |
+|---------------------|----------|-------------------------------------------------------------------------------|
+| id                  | integer  | ID of the settings.                                                           |
+| sample_id           | integer  | ID of the sample that it belongs to.                                          |
+| bluetooth_enabled   | boolean  | Either if bluetooth is on or off.                                             |
+| location_enabled    | boolean  | Either if GPS is on or off.                                                   |
+| power_saver_enabled | boolean  | Either if power saver mode is enabled or disabled.                            |
+| flashlight_enabled  | boolean  | Either if flashlight is on or off.                                            |
+| nfc_enabled         | boolean  | Either if NFC sensor is on or off.                                            |
+| unknown_sources     | boolean  | Either if system setting for apps of unknown sources can be installed or not. |
+| developer_mode      | boolean  | Either if developer mode is enabled or disabled.                              |
+| created_at          | datetime | Timestamp when the record was created.                                        |
+| updated_at          | datetime | Timestamp when the record was last updated.                                   |
+
 

@@ -51,7 +51,8 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+  plugins: ['@vuepress/back-to-top']
 }
 
 function genSidebarConfig (title, children = [''], collapsable = false) {
