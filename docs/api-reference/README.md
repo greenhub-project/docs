@@ -680,37 +680,67 @@ $ curl -i -X GET "https://farmer.greenhubproject.org/api/v1/cpu-statuses/1234" -
 
 ### Battery Details Object
 
-Battery Details object represents a .
+Battery Details object represents a set of extra information regarding the device's physical battery condition at the time the associated sample is obtained.
 
-| Key        | Type     | Description                                 |
-|------------|----------|---------------------------------------------|
-| id         | integer  | ID of the battery details.                  |
-| created_at | datetime | Timestamp when the record was created.      |
-| updated_at | datetime | Timestamp when the record was last updated. |
+| Key         | Type     | Description                                                                                                    |
+|-------------|----------|----------------------------------------------------------------------------------------------------------------|
+| id          | integer  | ID of the battery details.                                                                                     |
+| sample_id   | integer  | ID of the sample that it belongs to.                                                                           |
+| charger     | string   | Type of charger. Can be `ac`, `usb` or `unplugged`.                                                            |
+| health      | string   | Battery's health. Can be `Unknown`, `Unspecified failure`, `Dead`, `Cold`, `Overheat`, `Over voltage`, `Good`. |
+| voltage     | float    | Battery's voltage in volts.                                                                                    |
+| temperature | float    | Battery's temperature in celsius degrees.                                                                      |
+| created_at  | datetime | Timestamp when the record was created.                                                                         |
+| updated_at  | datetime | Timestamp when the record was last updated.                                                                    |
 
 
 ## Network Details
 
 ### Network Details Object
 
-Network Details object represents a .
+Network Details object represents a set of extra information regarding the device's networks at the time the associated sample is obtained.
 
-| Key        | Type     | Description                                 |
-|------------|----------|---------------------------------------------|
-| id         | integer  | ID of the network details.                  |
-| created_at | datetime | Timestamp when the record was created.      |
-| updated_at | datetime | Timestamp when the record was last updated. |
+| Key                  | Type     | Description                                                                                          |
+|----------------------|----------|------------------------------------------------------------------------------------------------------|
+| id                   | integer  | ID of the network details.                                                                           |
+| sample_id            | integer  | ID of the sample that it belongs to.                                                                 |
+| network_type         | string   | Network's type. Can be `wifi`, `mobile` or `unknown`.                                                |
+| mobile_network_type  | string   | Mobile network's type. Some possible values can be `GPRS`, `EDGE`, `UMTS`, etc.                      |
+| mobile_data_status   | string   | Mobile data current status. Can be `connecting`, `connected`, `disconnected` or `suspended`.         |
+| mobile_data_activity | string   | Mobile data current activity state. Can be `none`, `in`, `out`, `inout`, `dormant`.                  |
+| roaming_enabled      | boolean  | Either if roaming is enabled or disabled.                                                            |
+| wifi_status          | string   | Wi-Fi current status. Can be `disabled`, `disabling`, `enabled`, `enabling`, `unknown`.              |
+| wifi_signal_strength | integer  | Wi-Fi signal strength in dBm.                                                                        |
+| wifi_link_speed      | integer  | Wi-Fi link speed in Mbps.                                                                            |
+| wifi_ap_status       | string   | Wi-Fi access point current status. Can be `disabled`, `disabling`, `enabled`, `enabling`, `unknown`. |
+| network_operator     | string   | Network infrastructure provider's name.                                                              |
+| sim_operator         | string   | Service provider's name bound to SIM card.                                                           |
+| mcc                  | string   | Numeric country code.                                                                                |
+| mnc                  | string   | Numeric network code.                                                                                |
+| created_at           | datetime | Timestamp when the record was created.                                                               |
+| updated_at           | datetime | Timestamp when the record was last updated.                                                          |
 
 
 ## Storage Details
 
 ### Storage Details Object
 
-Storage Details object represents a .
+Storage Details object represents the device's storage usage information at the time the associated sample is obtained. Storage unit is Kilobytes.
 
-| Key | Type    | Description                |
-|-----|---------|----------------------------|
-| id  | integer | ID of the storage details. |
+| Key             | Type     | Description                                 |
+|-----------------|----------|---------------------------------------------|
+| id              | integer  | ID of the storage details.                  |
+| sample_id       | integer  | ID of the sample that it belongs to.        |
+| free            | integer  | Overall free storage space.                 |
+| total           | integer  | Overall total storage space.                |
+| free_external   | integer  | External storage free space.                |
+| total_external  | integer  | External storage total space.               |
+| free_system     | integer  | System storage free space.                  |
+| total_system    | integer  | System storage total space.                 |
+| free_secondary  | integer  | Secondary storage free space.               |
+| total_secondary | integer  | Secondary storage total space.              |
+| created_at      | datetime | Timestamp when the record was created.      |
+| updated_at      | datetime | Timestamp when the record was last updated. |
 
 
 ## Settings
@@ -733,4 +763,75 @@ Settings object represents a set of device's configuration at the time the assoc
 | created_at          | datetime | Timestamp when the record was created.                                        |
 | updated_at          | datetime | Timestamp when the record was last updated.                                   |
 
+### List Settings
 
+Get a single page from the list of all settings.
+
+``` http
+GET /v1/settings
+```
+
+#### Authentication
+
+Yes
+
+#### Parameters
+
+All parameters are optional.
+
+| Param    | Description                               |
+|----------|-------------------------------------------|
+| page     | Page number to retrieve. _(Default: 1)_   |
+| per_page | Number of items per page. _(Default: 10)_ |
+
+#### Response
+
+``` http
+200 OK
+X-Ratelimit-Limit: 60
+X-Ratelimit-Remaining: 59
+```
+
+``` json
+```
+
+#### Example Request
+
+``` shell
+$ curl -i -X GET "https://farmer.greenhubproject.org/api/v1/settings?per_page=2" -H "Authorization: Bearer {your api key}"
+```
+
+### Get A Settings
+
+Retrieve a single settings.
+
+``` http
+GET /v1/settings/:id
+```
+
+#### Authentication
+
+Yes
+
+#### Parameters
+
+| Param | Description                   |
+|-------|-------------------------------|
+| id    | The settings's ID. _Required_ |
+
+#### Response
+
+``` json
+200 OK
+X-Ratelimit-Limit: 60
+X-Ratelimit-Remaining: 59
+```
+
+``` json
+```
+
+#### Example Request
+
+``` json
+$ curl -i -X GET "https://farmer.greenhubproject.org/api/v1/settings/1234" -H "Authorization: Bearer {your api key}"
+```
