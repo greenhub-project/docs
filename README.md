@@ -1,6 +1,6 @@
 # GreenHub Documentation
 
-[![Build Status](https://travis-ci.org/greenhub-project/docs.svg?branch=master)](https://travis-ci.org/greenhub-project/docs)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/535d029f-4b98-4f53-9bbc-47f493c3297f/deploy-status)](https://app.netlify.com/sites/objective-shannon-ddbabb/deploys)
 
 This repository contains the source code for the GreenHub docs.
 
